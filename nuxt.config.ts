@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    "nuxt-icon",
+    "@nuxt/icon",
     "nuxt-lodash",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
