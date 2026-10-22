@@ -31,6 +31,35 @@ Inside Plugins/axios.js make sure the baseUrl is the same as your API.
 
 You should be good to go!
 
+## Node.js version
+
+This project runs on **Node.js 24**. The version is pinned in two places, keep them in sync:
+
+- `package.json` → `"engines": { "node": "24.x" }` (read by Vercel)
+- `.nvmrc` → `24` (read by nvm / fnm / Volta)
+
+> Node 18 is end-of-life and no longer accepted by Vercel, and Nuxt 3.21+ requires Node 20+.
+
+## Deploy on Vercel
+
+1. Push the repository to GitHub.
+2. In Vercel choose **Add New → Project** and import the repository.
+3. Framework preset **Nuxt** is detected automatically.
+   - Install command: `npm install`
+   - Build command: `npm run build`
+   - Output: produced by Nitro in `.vercel/output` (no output directory needed)
+4. Node.js version: **24.x**. Vercel picks this up from `engines.node`, but you can also force it in
+   **Project Settings → General → Node.js Version**.
+5. No environment variables are required for a build — the API base URL is set in `plugins/axios.js`.
+
+Production build locally:
+
+```
+npm ci
+npm run build
+npm run start
+```
+
 ## Extra Info
 
 In the tutorial I show you what you need to edit in your Nginx config file.
